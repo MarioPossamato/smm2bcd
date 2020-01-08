@@ -6,8 +6,8 @@ This is a simple command line tool that reads entity data from a Super Mario Mak
 [Python 3.7](https://www.python.org/downloads/release/python-370/)  
 [Simontime's Super Mario Maker 2 Course Decryptor](https://github.com/simontime/SMM2CourseDecryptor/releases)
 
-### Quick Note:
-If you have git you can run `git clone https://github.com/MarioPossamato/smm2bcd/archive/master.zip` in a command window...
+## Note:
+If you have git installed, you can run `git clone https://github.com/MarioPossamato/smm2bcd/archive/master.zip` in a console window.
 
 ## How do I run this tool?
 Before you start, make sure the `dec_path.txt` file contains the path of the course decryptor executable above...  
