@@ -18,10 +18,10 @@ On Linux, open the console and type `wine cmd.exe /c` followed by the path of th
 Make sure you set the `dec_course_path.txt` and `enc_course_path.txt` files in `path_files` to the directories of courses you want to import.
 
 ## Where do I get help/support?
-[My Discord Server](https://discord.gg/CtKBBt)
+[My Discord Server](https://discord.gg/8wx8uQF)
 
 ## Where can I discuss development of this app?
-[My Discord Server](https://discord.gg/CtKBBt)
+[My Discord Server](https://discord.gg/8wx8uQF)
 
 ## Who gets credit for this?
 @MarioPossamato#9693 for the initial script;  
