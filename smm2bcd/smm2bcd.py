@@ -11,7 +11,7 @@ def open_enc_course():
     if course_path:
         head, tail = os.path.split(course_path)
         dec_course_path = head + '/dec_' + tail
-        with open('path_files/decryptor_path.txt','r') as decryptor_path:
+        with open('path/decryptor_path.txt','r') as decryptor_path:
             dec_path = decryptor_path.read()
             os.system(dec_path + ' ' + course_path + ' ' + dec_course_path)
             print(course_path)
@@ -21,11 +21,11 @@ def open_enc_course():
 
 def import_enc_course_path():
     global dec_course_path
-    with open('path_files/enc_course_path.txt','r') as course_path:
+    with open('path/enc_course_path.txt','r') as course_path:
         enc_course_path = course_path.read()
         head, tail = os.path.split(enc_course_path)
         dec_course_path = head + '/dec_' + tail
-        with open('path_files/decryptor_path.txt','r') as decryptor_path:
+        with open('path/decryptor_path.txt','r') as decryptor_path:
             dec_path = decryptor_path.read()
             os.system(dec_path + ' ' + enc_course_path + ' ' + dec_course_path)
             print(dec_course_path)
@@ -45,7 +45,7 @@ def open_dec_course():
 
 def import_dec_course_path():
     global dec_course_path
-    with open('path_files/dec_course_path.txt','r') as course_path:
+    with open('path/dec_course_path.txt','r') as course_path:
         dec_course_path = course_path.read()
         print(dec_course_path)
 
@@ -629,36 +629,6 @@ def print_entities():
     print('ID ' + hex(id) + ': Icicle')
     id += 1
     print('ID ' + hex(id) + ': ! Block')
-
-
-def read_all():
-    global dec_course_path
-    with open(dec_course_path,'rb') as course:
-        for i in range(2600):
-            course.seek(596 + 32 * i)
-            entity_attribute = course.read(1)
-            integer = int.from_bytes(entity_attribute, byteorder='big')
-            hexadecimal = hex(integer)
-            high, low = int(hexadecimal, 16) >> 4, int(hexadecimal, 16) & 0x0F
-            high = hex(high)
-            low = hex(low)
-            if low == '0x0' or low == '0x8':
-                status = 'Regular'
-            if low == '0x1' or low == '0x9':
-                status = 'In A Pipe'
-            if low == '0x2' or low == '0xA':
-                status = 'Winged'
-            if low == '0x3' or low == '0xB':
-                status = 'In Pipe And Winged'
-            if low == '0x4' or low == '0xC':
-                status = 'Shaken'
-            if low == '0x5' or low == '0xD':
-                status = 'Shaken In A Pipe'
-            if low == '0x6' or low == '0xE':
-                status = 'Shaken And Winged'
-            if low == '0x7' or low == '0xF':
-                status = 'Shaken And In Pipe And Winged'
-            print(status + ' Entity ' + str(i) + ': ' + str(low) + ' @' + str(hex(628 + 32 * i)))
 
 
 def edit_entity(entity_id_offset, new_id):
