@@ -663,9 +663,9 @@ def read_all():
 
 def edit_entity(entity_id_offset, new_id):
     global dec_course_path
-    with open('C:/Users/User1/Desktop/test.bin', 'rb') as file:
+    with open(dec_course_path, 'rb') as file:
 	    data = file.read()
 	    data = bytearray(data)
 	    data[entity_id_offset] = int(new_id)
-	    with open('C:/Users/User1/Desktop/test.bin', 'wb') as file:
+	    with open(dec_course_path, 'wb') as file:
 		    file.write(data)
