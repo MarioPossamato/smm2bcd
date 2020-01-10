@@ -885,16 +885,6 @@ def edit_entity(entity_name, entity_number):
 		    print('Success!')
 
 
-def encrypt_course():
-    print("This feature has not been implemented yet, please don't try to use it!")
-    pass
-    global dec_course_path
-    with open('path/decryptor_path.txt','r') as decryptor_path:
-            dec_path = decryptor_path.read()
-            os.system(dec_path + ' ' + dec_course_path + ' ' + str(dec_course_path).replace('dec_',''))
-            print('Successfully Encrypted!')
-
-
 def edit_key_status(entity_number, key_status):
     global dec_course_path
     if key_status == False:
@@ -908,3 +898,13 @@ def edit_key_status(entity_number, key_status):
         with open(dec_course_path, 'wb') as course:
             course.write(data)
             print('Success!')
+
+
+def encrypt_course():
+    print("This feature has not been implemented yet, please don't try to use it!")
+    pass
+    global dec_course_path
+    with open('path/decryptor_path.txt','r') as decryptor_path:
+            dec_path = decryptor_path.read()
+            os.system(dec_path + ' ' + dec_course_path + ' ' + str(dec_course_path).replace('dec_',''))
+            print('Successfully Encrypted!')
