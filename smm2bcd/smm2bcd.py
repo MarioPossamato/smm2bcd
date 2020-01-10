@@ -386,256 +386,270 @@ def read_entities():
             if entity_id == bytes([0x76, 0x00, 0xFF]) or entity_id == bytes([0x76, 0x12, 0xFF]):
                 entity_name = '! Block'
             print(str(i) + ': ' + str(entity_name) + ' @' + str(hex(608 + 32 * i)))
+            home = os.path.expanduser("~")
+            os.system('echo ' + (str(i) + ': ' + str(entity_name) + ' @' + str(hex(608 + 32 * i))) + ' >> ' + home + '/Desktop/extracted_entities.txt')
+    print('Entities exported to ' + home + '/Desktop/extracted_entities.txt')
 
 
 def print_entities():
     id = 0
-    print('ID ' + hex(id) + ': Goomba/Galoomba')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Goomba/Galoomba')
     id += 1
-    print('ID ' + hex(id) + ': Koopa Troopa')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Koopa Troopa')
     id += 1
-    print('ID ' + hex(id) + ': Piranha Plant/Jumping Piranha Plant')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Piranha Plant/Jumping Piranha Plant')
     id += 1
-    print('ID ' + hex(id) + ': Hammer Bro')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Hammer Bro')
     id += 1
-    print('ID ' + hex(id) + ': Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Block')
     id += 1
-    print('ID ' + hex(id) + ': ? Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': ? Block')
     id += 1
-    print('ID ' + hex(id) + ': Hard Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Hard Block')
     id += 1
-    print('ID ' + hex(id) + ': Ground')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Ground')
     id += 1
-    print('ID ' + hex(id) + ': Coin')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Coin')
     id += 1
-    print('ID ' + hex(id) + ': Pipe')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Pipe')
     id += 1
-    print('ID ' + hex(id) + ': Trampoline')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Trampoline')
     id += 1
-    print('ID ' + hex(id) + ': Lift/Cloud Lift')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Lift/Cloud Lift')
     id += 1
-    print('ID ' + hex(id) + ': Thwomp')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Thwomp')
     id += 1
-    print('ID ' + hex(id) + ': Bill Blaster')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Bill Blaster')
     id += 1
-    print('ID ' + hex(id) + ': Mushroom Platform')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Mushroom Platform')
     id += 1
-    print('ID ' + hex(id) + ': Bob-omb')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Bob-omb')
     id += 1
-    print('ID ' + hex(id) + ': Semisolid Platform')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Semisolid Platform')
     id += 1
-    print('ID ' + hex(id) + ': Bridge')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Bridge')
     id += 1
-    print('ID ' + hex(id) + ': P-Switch')
+    print('ID ' + str(id) + ', ' + hex(id) + ': P-Switch')
     id += 1
-    print('ID ' + hex(id) + ': Pow Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Pow Block')
     id += 1
-    print('ID ' + hex(id) + ': Super Mushroom')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Super Mushroom')
     id += 1
-    print('ID ' + hex(id) + ': Donut Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Donut Block')
     id += 1
-    print('ID ' + hex(id) + ': Cloud Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Cloud Block')
     id += 1
-    print('ID ' + hex(id) + ': Note Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Note Block')
     id += 1
-    print('ID ' + hex(id) + ': Fire Bar')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Fire Bar')
     id += 1
-    print('ID ' + hex(id) + ': Spiny')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Spiny')
     id += 1
-    print('ID ' + hex(id) + ': Ground Goal')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Ground Goal')
     id += 1
-    print('ID ' + hex(id) + ': Goal Pole')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Goal Pole')
     id += 1
-    print('ID ' + hex(id) + ': Buzzy Beetle')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Buzzy Beetle')
     id += 1
-    print('ID ' + hex(id) + ': Hidden Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Hidden Block')
     id += 1
-    print('ID ' + hex(id) + ': Lakitu')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Lakitu')
     id += 1
-    print('ID ' + hex(id) + ': Cloud')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Cloud')
     id += 1
-    print('ID ' + hex(id) + ': Banzai Bill')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Banzai Bill')
     id += 1
-    print('ID ' + hex(id) + ': 1-Up Mushroom')
+    print('ID ' + str(id) + ', ' + hex(id) + ': 1-Up Mushroom')
     id += 1
-    print('ID ' + hex(id) + ': Fire Flower')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Fire Flower')
     id += 1
-    print('ID ' + hex(id) + ': Super Star')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Super Star')
     id += 1
-    print('ID ' + hex(id) + ': Lava Lift')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Lava Lift')
     id += 1
-    print('ID ' + hex(id) + ': Ground Start')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Ground Start')
     id += 1
-    print('ID ' + hex(id) + ': Start Sign')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Start Sign')
     id += 1
-    print('ID ' + hex(id) + ': Kameck')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Kameck')
     id += 1
-    print('ID ' + hex(id) + ': Spike Top')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Spike Top')
     id += 1
-    print('ID ' + hex(id) + ': Boo')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Boo')
     id += 1
-    print('ID ' + hex(id) + ': Koopa CLown Car')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Koopa CLown Car')
     id += 1
-    print('ID ' + hex(id) + ': Spike Trap')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Spike Trap')
     id += 1
-    print('ID ' + hex(id) + ': 3rd Tier Powerup')
+    print('ID ' + str(id) + ', ' + hex(id) + ': 3rd Tier Powerup')
     id += 1
-    print('ID ' + hex(id) + ': Shoe Goomba/Yoshi Egg')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Shoe Goomba/Yoshi Egg')
     id += 1
-    print('ID ' + hex(id) + ': Dry Bones')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Dry Bones')
     id += 1
-    print('ID ' + hex(id) + ': Cannon')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Cannon')
     id += 1
-    print('ID ' + hex(id) + ': Blooper')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Blooper')
     id += 1
-    print('ID ' + hex(id) + ': Castle Bridge')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Castle Bridge')
     id += 1
-    print('ID ' + hex(id) + ': Hop-Chops')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Hop-Chops')
     id += 1
-    print('ID ' + hex(id) + ': Skipsqueak')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Skipsqueak')
     id += 1
-    print('ID ' + hex(id) + ': Wiggler')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Wiggler')
     id += 1
-    print('ID ' + hex(id) + ': Conveyer Belt')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Conveyer Belt')
     id += 1
-    print('ID ' + hex(id) + ': Burner')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Burner')
     id += 1
-    print('ID ' + hex(id) + ': Warp Door')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Warp Door')
     id += 1
-    print('ID ' + hex(id) + ': Cheep Cheep')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Cheep Cheep')
     id += 1
-    print('ID ' + hex(id) + ': Muncher')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Muncher')
     id += 1
-    print('ID ' + hex(id) + ': Rocky Wrench')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Rocky Wrench')
     id += 1
-    print('ID ' + hex(id) + ': Rail')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Rail')
     id += 1
-    print('ID ' + hex(id) + ': Lava Bubble')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Lava Bubble')
     id += 1
-    print('ID ' + hex(id) + ': Chain Chomp')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Chain Chomp')
     id += 1
-    print('ID ' + hex(id) + ': Bowser/Meowser')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Bowser/Meowser')
     id += 1
-    print('ID ' + hex(id) + ': Ice Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Ice Block')
     id += 1
-    print('ID ' + hex(id) + ': Vine')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Vine')
     id += 1
-    print('ID ' + hex(id) + ': Stingby')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Stingby')
     id += 1
-    print('ID ' + hex(id) + ': Arrow Sign')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Arrow Sign')
     id += 1
-    print('ID ' + hex(id) + ': One-Way Wall')
+    print('ID ' + str(id) + ', ' + hex(id) + ': One-Way Wall')
     id += 1
-    print('ID ' + hex(id) + ': Grinder')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Grinder')
     id += 1
-    print('ID ' + hex(id) + ': Player')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Player')
     id += 1
-    print('ID ' + hex(id) + ': 10-Coin')
+    print('ID ' + str(id) + ', ' + hex(id) + ': 10-Coin')
     id += 1
-    print('ID ' + hex(id) + ': Semisolid Platform (3D World)')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Semisolid Platform (3D World)')
     id += 1
-    print('ID ' + hex(id) + ': Koopa Troopa Car')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Koopa Troopa Car')
     id += 1
-    print('ID ' + hex(id) + ': Toad')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Toad')
     id += 1
-    print('ID ' + hex(id) + ': None')
+    print('ID ' + str(id) + ', ' + hex(id) + ': None')
     id += 1
-    print('ID ' + hex(id) + ': Stone')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Stone')
     id += 1
-    print('ID ' + hex(id) + ': Twister')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Twister')
     id += 1
-    print('ID ' + hex(id) + ': Boom Boom')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Boom Boom')
     id += 1
-    print('ID ' + hex(id) + ': None')
+    print('ID ' + str(id) + ', ' + hex(id) + ': None')
     id += 1
-    print('ID ' + hex(id) + ': None')
+    print('ID ' + str(id) + ', ' + hex(id) + ': None')
     id += 1
-    print('ID ' + hex(id) + ': None')
+    print('ID ' + str(id) + ', ' + hex(id) + ': None')
     id += 1
-    print('ID ' + hex(id) + ': None')
+    print('ID ' + str(id) + ', ' + hex(id) + ': None')
     id += 1
-    print('ID ' + hex(id) + ': Bumper')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Bumper')
     id += 1
-    print('ID ' + hex(id) + ': Spike Pillar')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Spike Pillar')
     id += 1
-    print('ID ' + hex(id) + ': Snake Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Snake Block')
     id += 1
-    print('ID ' + hex(id) + ': Track Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Track Block')
     id += 1
-    print('ID ' + hex(id) + ': Charvaargh')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Charvaargh')
     id += 1
-    print('ID ' + hex(id) + ': Gentle Slope')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Gentle Slope')
     id += 1
-    print('ID ' + hex(id) + ': Steep Slope')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Steep Slope')
     id += 1
-    print('ID ' + hex(id) + ': Custom Scroll Waypoint')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Custom Scroll Waypoint')
     id += 1
-    print('ID ' + hex(id) + ': Checkpoint Flag')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Checkpoint Flag')
     id += 1
-    print('ID ' + hex(id) + ': Seesaw')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Seesaw')
     id += 1
-    print('ID ' + hex(id) + ': Pink Coin')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Pink Coin')
     id += 1
-    print('ID ' + hex(id) + ': Clear Pipe')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Clear Pipe')
     id += 1
-    print('ID ' + hex(id) + ': Sloped Conveyer Belt')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Sloped Conveyer Belt')
     id += 1
-    print('ID ' + hex(id) + ': Key')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Key')
     id += 1
-    print('ID ' + hex(id) + ': Ant Trooper')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Ant Trooper')
     id += 1
-    print('ID ' + hex(id) + ': Warp Box')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Warp Box')
     id += 1
-    print('ID ' + hex(id) + ': Bowser Jr.')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Bowser Jr.')
     id += 1
-    print('ID ' + hex(id) + ': On/Off Switch')
+    print('ID ' + str(id) + ', ' + hex(id) + ': On/Off Switch')
     id += 1
-    print('ID ' + hex(id) + ': Dotted-Line Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Dotted-Line Block')
     id += 1
-    print('ID ' + hex(id) + ': Lava Editor')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Lava Editor')
     id += 1
-    print('ID ' + hex(id) + ': Monty Mole')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Monty Mole')
     id += 1
-    print('ID ' + hex(id) + ': Fish Bones')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Fish Bones')
     id += 1
-    print('ID ' + hex(id) + ': Angry Sun')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Angry Sun')
     id += 1
-    print('ID ' + hex(id) + ': Swinging Claw')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Swinging Claw')
     id += 1
-    print('ID ' + hex(id) + ': Tree')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Tree')
     id += 1
-    print('ID ' + hex(id) + ': Piranha Creeper')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Piranha Creeper')
     id += 1
-    print('ID ' + hex(id) + ': Blinking Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Blinking Block')
     id += 1
-    print('ID ' + hex(id) + ': Sound Effect Icon')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Sound Effect Icon')
     id += 1
-    print('ID ' + hex(id) + ': Spike Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Spike Block')
     id += 1
-    print('ID ' + hex(id) + ': None')
+    print('ID ' + str(id) + ', ' + hex(id) + ': None')
     id += 1
-    print('ID ' + hex(id) + ': Crate')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Crate')
     id += 1
-    print('ID ' + hex(id) + ': Mushroom Trampoline')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Mushroom Trampoline')
     id += 1
-    print('ID ' + hex(id) + ': Porcupuffer')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Porcupuffer')
     id += 1
-    print('ID ' + hex(id) + ': Goal Toadette')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Goal Toadette')
     id += 1
-    print('ID ' + hex(id) + ': Super Hammer')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Super Hammer')
     id += 1
-    print('ID ' + hex(id) + ': Bully')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Bully')
     id += 1
-    print('ID ' + hex(id) + ': Icicle')
+    print('ID ' + str(id) + ', ' + hex(id) + ': Icicle')
     id += 1
-    print('ID ' + hex(id) + ': ! Block')
+    print('ID ' + str(id) + ', ' + hex(id) + ': ! Block')
 
 
-def edit_entity(entity_id_offset, new_id):
+def edit_entity(entity_number, new_id):
     global dec_course_path
-    with open(dec_course_path, 'rb') as file:
-	    data = file.read()
+    with open(dec_course_path, 'rb') as course:
+	    data = course.read()
 	    data = bytearray(data)
-	    data[entity_id_offset] = int(new_id)
-	    with open(dec_course_path, 'wb') as file:
-		    file.write(data)
+	    data[576 + 32 * entity_number] = int(new_id)
+	    with open(dec_course_path, 'wb') as course:
+		    course.write(data)
+		    print('Success!')
+
+
+def encrypt_course():
+    print('This feature has not been implemented yet!')
+    pass
+    global dec_course_path
+    with open('path/decryptor_path.txt','r') as decryptor_path:
+            dec_path = decryptor_path.read()
+            os.system(dec_path + ' ' + dec_course_path + ' ' + str(dec_course_path).replace('dec_',''))
+            print('Successfully Encrypted!')
