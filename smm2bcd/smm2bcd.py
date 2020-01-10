@@ -126,6 +126,15 @@ def read_secondary_attributes():
             print(status + ', ' + rotation + ' Entity ' + str(i) + ': ' + str(high) + ' ' + str(low) + ' @' + str(hex(628 + 32 * i)))
 
 
+def read_coordinates():
+    global dec_course_path
+    with open(dec_course_path,'rb') as course:
+        for i in range(2600):
+            course.seek(584 + 32 * i)
+            entity_coordinates = course.read(8)
+            print('Entity ' + str(i) + ' Coordinates: ' + str(entity_coordinates) + ' @' + str(hex(628 + 32 * i)))
+
+
 def check_key_status():
     global dec_course_path
     with open(dec_course_path,'rb') as course:
