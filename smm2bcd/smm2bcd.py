@@ -2,6 +2,16 @@ import sys, os, os.path, tkinter
 from tkinter import filedialog, messagebox
 
 
+def encrypt_course():
+    print("This feature has not been implemented yet, please don't try to use it!")
+    pass
+    global dec_course_path
+    with open('path/decryptor_path.txt','r') as decryptor_path:
+            dec_path = decryptor_path.read()
+            os.system(dec_path + ' ' + dec_course_path + ' ' + str(dec_course_path).replace('dec_',''))
+            print('Successfully Encrypted!')
+
+
 def open_enc_course():
     global dec_course_path
     home = os.path.expanduser("~")
@@ -916,13 +926,3 @@ def edit_key_status(entity_number, key_status):
         with open(dec_course_path, 'wb') as course:
             course.write(data)
             print('Success!')
-
-
-def encrypt_course():
-    print("This feature has not been implemented yet, please don't try to use it!")
-    pass
-    global dec_course_path
-    with open('path/decryptor_path.txt','r') as decryptor_path:
-            dec_path = decryptor_path.read()
-            os.system(dec_path + ' ' + dec_course_path + ' ' + str(dec_course_path).replace('dec_',''))
-            print('Successfully Encrypted!')
