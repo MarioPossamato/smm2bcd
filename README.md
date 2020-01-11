@@ -8,6 +8,7 @@ This is a simple command line tool that reads entity data from a Super Mario Mak
 
 ## Note:
 If you have git installed, you can run `git clone https://github.com/MarioPossamato/smm2bcd` in a console window and download the smm2bcd package that way.
+Also, for now modified courses are found as 'corrupt'.  At this time the problem is being researched!
 
 ## How do I run this tool?
 Before you start, make sure the `dec_path.txt` file contains the path of the course decryptor executable above...  
