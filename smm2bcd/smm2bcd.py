@@ -135,6 +135,15 @@ def read_coordinates():
             print('Entity ' + str(i) + ' Coordinates: ' + str(entity_coordinates) + ' @' + str(hex(628 + 32 * i)))
 
 
+def read_dimensions():
+    global dec_course_path
+    with open(dec_course_path,'rb') as course:
+        for i in range(2600):
+            course.seek(562 + 32 * i)
+            entity_dimensions = course.read(2)
+            print('Entity ' + str(i) + ' Dimensions: ' + str(entity_dimensions) + ' @' + str(hex(628 + 32 * i)))
+
+
 def check_key_status():
     global dec_course_path
     with open(dec_course_path,'rb') as course:
