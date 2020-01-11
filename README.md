@@ -2,7 +2,7 @@
 This is a simple command line tool that reads entity data from a Super Mario Maker 2 course file.
 
 ## What do I need to set this tool up?
-[This package](https://github.com/MarioPossamato/smm2bcd/archive/master.zip)  
+[This Package](https://github.com/MarioPossamato/smm2bcd/archive/master.zip)  
 [Python 3.7](https://www.python.org/downloads/release/python-370/)  
 [Super Mario Maker 2 Course Decryptor](https://cdn.discordapp.com/attachments/638445176070602752/665586143001051156/smm2dec.exe)
 
