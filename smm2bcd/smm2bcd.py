@@ -3,13 +3,10 @@ from tkinter import filedialog, messagebox
 
 
 def encrypt_course():
-    print("This feature has not been implemented yet, please don't try to use it!")
-    pass
     global dec_course_path
     with open('path/decryptor_path.txt','r') as decryptor_path:
             dec_path = decryptor_path.read()
-            os.system(dec_path + ' ' + dec_course_path + ' ' + str(dec_course_path).replace('dec_',''))
-            print('Successfully Encrypted!')
+            os.system(dec_path + ' -e ' + dec_course_path + ' ' + str(dec_course_path).replace('dec_',''))
 
 
 def open_enc_course():
@@ -23,7 +20,7 @@ def open_enc_course():
         dec_course_path = head + '\dec_' + tail
         with open('path/decryptor_path.txt','r') as decryptor_path:
             dec_path = decryptor_path.read()
-            os.system(dec_path + ' ' + course_path + ' ' + dec_course_path)
+            os.system(dec_path + ' -h ' + course_path + ' ' + dec_course_path)
             print(course_path)
     else:
         print('You Chose Nothing!')
@@ -37,7 +34,7 @@ def import_enc_course_path():
         dec_course_path = head + '\dec_' + tail
         with open('path/decryptor_path.txt','r') as decryptor_path:
             dec_path = decryptor_path.read()
-            os.system(dec_path + ' ' + enc_course_path + ' ' + dec_course_path)
+            os.system(dec_path + ' -h ' + enc_course_path + ' ' + dec_course_path)
             print(dec_course_path)
 
 
