@@ -24,5 +24,7 @@ Make sure you set the `dec_course_path.txt` and `enc_course_path.txt` files in `
 [My Discord Server](https://discord.gg/8wx8uQF)
 
 ## Who gets credit for this?
-@MarioPossamato#9693 for the initial script;  
-@comex#9163 for cleaning up the script.
+mario possamato for the initial script;  
+comex for cleaning up the script;
+simontime for the initial course decryptor;
+blawar for the encryption support for the decryptor.
