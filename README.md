@@ -25,6 +25,6 @@ Make sure you set the `dec_course_path.txt` and `enc_course_path.txt` files in `
 
 ## Who gets credit for this?
 mario possamato for the initial script;  
-comex for cleaning up the script;
-simontime for the initial course decryptor;
+comex for cleaning up the script;  
+simontime for the initial course decryptor;  
 blawar for the encryption support for the decryptor.
