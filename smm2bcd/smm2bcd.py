@@ -411,8 +411,6 @@ def read_entities():
             if entity_id == bytes([0x76, 0x00, 0xFF]) or entity_id == bytes([0x76, 0x12, 0xFF]):
                 entity_name = '! Block'
             print(str(i) + ': ' + str(entity_name) + ' @' + str(hex(608 + 32 * i)))
-            if entity_name == f'Unknown({entity_id})':
-                return
             home = os.path.expanduser("~")
             os.system('echo ' + (str(i) + ': ' + str(entity_name) + ' @' + str(hex(608 + 32 * i))) + ' >> ' + home + '/Desktop/extracted_entities.txt')
     print('Entities exported to ' + home + '/Desktop/extracted_entities.txt')
