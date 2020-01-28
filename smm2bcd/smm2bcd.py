@@ -411,6 +411,8 @@ def read_entities():
             if entity_id == bytes([0x76, 0x00, 0xFF]) or entity_id == bytes([0x76, 0x12, 0xFF]):
                 entity_name = '! Block'
             print(str(i) + ': ' + str(entity_name) + ' @' + str(hex(608 + 32 * i)))
+            if entity_name == f'Unknown({entity_id})':
+                return
             home = os.path.expanduser("~")
             os.system('echo ' + (str(i) + ': ' + str(entity_name) + ' @' + str(hex(608 + 32 * i))) + ' >> ' + home + '/Desktop/extracted_entities.txt')
     print('Entities exported to ' + home + '/Desktop/extracted_entities.txt')
@@ -923,3 +925,274 @@ def edit_key_status(entity_number, key_status):
         with open(dec_course_path, 'wb') as course:
             course.write(data)
             print('Success!')
+
+def remove_entity(entity_number):
+    global dec_course_path
+    if entity_number < 1:
+        print('Enemy Number Cannot Be Less Than 1!')
+        return
+    if entity_number > 2599:
+        print('Enemy Number Cannot Be More Than 2599!')
+        return
+    with open(dec_course_path, 'rb') as course:
+        data = course.read()
+        data = bytearray(data)
+        data[int(552 + 32 * entity_number):int(552 + 32 * entity_number + 32)] = bytes([0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00])
+        with open(dec_course_path, 'wb') as course:
+            course.write(data)
+
+def add_new_basic_entity():
+    global i
+    global dec_course_path
+    with open(dec_course_path,'rb') as course:
+        for i in range(2600):
+            course.seek(608 + 32 * i)
+            entity_id = course.read(3)
+            entity_name = f'Unknown({entity_id})'
+            if entity_id == bytes([0x00, 0x00, 0xFF]) or entity_id == bytes([0x00, 0x12, 0xFF]):
+                entity_name = 'Goomba/Galoomba'
+            if entity_id == bytes([0x01, 0x00, 0xFF]) or entity_id == bytes([0x01, 0x12, 0xFF]):
+                entity_name = 'Koopa Troopa'
+            if entity_id == bytes([0x02, 0x00, 0xFF]) or entity_id == bytes([0x02, 0x12, 0xFF]):
+                entity_name = 'Piranha Plant/Jumping Piranha Plant'
+            if entity_id == bytes([0x03, 0x00, 0xFF]) or entity_id == bytes([0x03, 0x12, 0xFF]):
+                entity_name = 'Hammer Bro'
+            if entity_id == bytes([0x04, 0x00, 0xFF]) or entity_id == bytes([0x04, 0x12, 0xFF]):
+                entity_name = 'Block'
+            if entity_id == bytes([0x05, 0x00, 0xFF]) or entity_id == bytes([0x05, 0x12, 0xFF]):
+                entity_name = '? Block'
+            if entity_id == bytes([0x06, 0x00, 0xFF]) or entity_id == bytes([0x06, 0x12, 0xFF]):
+                entity_name = 'Hard Block'
+            if entity_id == bytes([0x07, 0x00, 0xFF]) or entity_id == bytes([0x07, 0x12, 0xFF]):
+                entity_name = 'Ground'
+            if entity_id == bytes([0x08, 0x00, 0xFF]) or entity_id == bytes([0x08, 0x12, 0xFF]):
+                entity_name = 'Coin'
+            if entity_id == bytes([0x09, 0x00, 0xFF]) or entity_id == bytes([0x09, 0x12, 0xFF]):
+                entity_name = 'Pipe'
+            if entity_id == bytes([0x0A, 0x00, 0xFF]) or entity_id == bytes([0x0A, 0x12, 0xFF]):
+                entity_name = 'Trampoline'
+            if entity_id == bytes([0x0B, 0x00, 0xFF]) or entity_id == bytes([0x0B, 0x12, 0xFF]):
+                entity_name = 'Lift/Cloud Lift'
+            if entity_id == bytes([0x0C, 0x00, 0xFF]) or entity_id == bytes([0x0C, 0x12, 0xFF]):
+                entity_name = 'Thwomp'
+            if entity_id == bytes([0x0D, 0x00, 0xFF]) or entity_id == bytes([0x0D, 0x12, 0xFF]):
+                entity_name = 'Bill Blaster'
+            if entity_id == bytes([0x0E, 0x00, 0xFF]) or entity_id == bytes([0x0E, 0x12, 0xFF]):
+                entity_name = 'Mushroom Platform'
+            if entity_id == bytes([0x0F, 0x00, 0xFF]) or entity_id == bytes([0x0F, 0x12, 0xFF]):
+                entity_name = 'Bob-omb'
+            if entity_id == bytes([0x10, 0x00, 0xFF]) or entity_id == bytes([0x70, 0x12, 0xFF]):
+                entity_name = 'Semisolid Platform'
+            if entity_id == bytes([0x11, 0x00, 0xFF]) or entity_id == bytes([0x11, 0x12, 0xFF]):
+                entity_name = 'Bridge'
+            if entity_id == bytes([0x12, 0x00, 0xFF]) or entity_id == bytes([0x12, 0x12, 0xFF]):
+                entity_name = 'P-Switch'
+            if entity_id == bytes([0x13, 0x00, 0xFF]) or entity_id == bytes([0x13, 0x12, 0xFF]):
+                entity_name = 'Pow Block'
+            if entity_id == bytes([0x14, 0x00, 0xFF]) or entity_id == bytes([0x14, 0x12, 0xFF]):
+                entity_name = 'Super Mushroom'
+            if entity_id == bytes([0x15, 0x00, 0xFF]) or entity_id == bytes([0x15, 0x12, 0xFF]):
+                entity_name = 'Donut Block'
+            if entity_id == bytes([0x16, 0x00, 0xFF]) or entity_id == bytes([0x16, 0x12, 0xFF]):
+                entity_name = 'Cloud Block'
+            if entity_id == bytes([0x17, 0x00, 0xFF]) or entity_id == bytes([0x17, 0x12, 0xFF]):
+                entity_name = 'Note Block'
+            if entity_id == bytes([0x18, 0x00, 0xFF]) or entity_id == bytes([0x18, 0x12, 0xFF]):
+                entity_name = 'Firebar'
+            if entity_id == bytes([0x19, 0x00, 0xFF]) or entity_id == bytes([0x19, 0x12, 0xFF]):
+                entity_name = 'Spiny'
+            if entity_id == bytes([0x1A, 0x00, 0xFF]) or entity_id == bytes([0x1A, 0x12, 0xFF]):
+                entity_name = 'Goal Ground'
+            if entity_id == bytes([0x1B, 0x00, 0xFF]) or entity_id == bytes([0x1B, 0x12, 0xFF]):
+                entity_name = 'Goal Pole'
+            if entity_id == bytes([0x1C, 0x00, 0xFF]) or entity_id == bytes([0x1C, 0x12, 0xFF]):
+                entity_name = 'Buzzy Beatle'
+            if entity_id == bytes([0x1D, 0x00, 0xFF]) or entity_id == bytes([0x1D, 0x12, 0xFF]):
+                entity_name = 'Hidden Block'
+            if entity_id == bytes([0x1E, 0x00, 0xFF]) or entity_id == bytes([0x1E, 0x12, 0xFF]):
+                entity_name = 'Lakitu'
+            if entity_id == bytes([0x1F, 0x00, 0xFF]) or entity_id == bytes([0x1F, 0x12, 0xFF]):
+                entity_name = 'Cloud'
+            if entity_id == bytes([0x20, 0x00, 0xFF]) or entity_id == bytes([0x70, 0x12, 0xFF]):
+                entity_name = 'Banzai Bill'
+            if entity_id == bytes([0x21, 0x00, 0xFF]) or entity_id == bytes([0x21, 0x12, 0xFF]):
+                entity_name = '1-Up Mushroom'
+            if entity_id == bytes([0x22, 0x00, 0xFF]) or entity_id == bytes([0x22, 0x12, 0xFF]):
+                entity_name = 'Fire Flower'
+            if entity_id == bytes([0x23, 0x00, 0xFF]) or entity_id == bytes([0x23, 0x12, 0xFF]):
+                entity_name = 'Super Star'
+            if entity_id == bytes([0x24, 0x00, 0xFF]) or entity_id == bytes([0x24, 0x12, 0xFF]):
+                entity_name = 'Lava Lift'
+            if entity_id == bytes([0x25, 0x00, 0xFF]) or entity_id == bytes([0x25, 0x12, 0xFF]):
+                entity_name = 'Ground Start'
+            if entity_id == bytes([0x26, 0x00, 0xFF]) or entity_id == bytes([0x26, 0x12, 0xFF]):
+                entity_name = 'Start Arrow'
+            if entity_id == bytes([0x27, 0x00, 0xFF]) or entity_id == bytes([0x27, 0x12, 0xFF]):
+                entity_name = 'Kameck'
+            if entity_id == bytes([0x28, 0x00, 0xFF]) or entity_id == bytes([0x28, 0x12, 0xFF]):
+                entity_name = 'Spike Top'
+            if entity_id == bytes([0x29, 0x00, 0xFF]) or entity_id == bytes([0x29, 0x12, 0xFF]):
+                entity_name = 'Boo'
+            if entity_id == bytes([0x2A, 0x00, 0xFF]) or entity_id == bytes([0x2A, 0x12, 0xFF]):
+                entity_name = 'Koopa Clown Car'
+            if entity_id == bytes([0x2B, 0x00, 0xFF]) or entity_id == bytes([0x2B, 0x12, 0xFF]):
+                entity_name = 'Spike Trap'
+            if entity_id == bytes([0x2C, 0x00, 0xFF]) or entity_id == bytes([0x2C, 0x12, 0xFF]):
+                entity_name = '3rd Tier Powerup'
+            if entity_id == bytes([0x2D, 0x00, 0xFF]) or entity_id == bytes([0x2D, 0x12, 0xFF]):
+                entity_name = 'Shoe Goomba/Yoshi'
+            if entity_id == bytes([0x2E, 0x00, 0xFF]) or entity_id == bytes([0x2E, 0x12, 0xFF]):
+                entity_name = 'Dry Bones'
+            if entity_id == bytes([0x2F, 0x00, 0xFF]) or entity_id == bytes([0x2F, 0x12, 0xFF]):
+                entity_name = 'Cannon'
+            if entity_id == bytes([0x30, 0x00, 0xFF]) or entity_id == bytes([0x70, 0x12, 0xFF]):
+                entity_name = 'Blooper'
+            if entity_id == bytes([0x31, 0x00, 0xFF]) or entity_id == bytes([0x31, 0x12, 0xFF]):
+                entity_name = 'Castle Bridge'
+            if entity_id == bytes([0x32, 0x00, 0xFF]) or entity_id == bytes([0x32, 0x12, 0xFF]):
+                entity_name = 'Hop-Chops'
+            if entity_id == bytes([0x33, 0x00, 0xFF]) or entity_id == bytes([0x33, 0x12, 0xFF]):
+                entity_name = 'Skipsqueak'
+            if entity_id == bytes([0x34, 0x00, 0xFF]) or entity_id == bytes([0x34, 0x12, 0xFF]):
+                entity_name = 'Wiggler'
+            if entity_id == bytes([0x35, 0x00, 0xFF]) or entity_id == bytes([0x35, 0x12, 0xFF]):
+                entity_name = 'Conveyer Belt'
+            if entity_id == bytes([0x36, 0x00, 0xFF]) or entity_id == bytes([0x36, 0x12, 0xFF]):
+                entity_name = 'Burner'
+            if entity_id == bytes([0x37, 0x00, 0xFF]) or entity_id == bytes([0x37, 0x12, 0xFF]):
+                entity_name = 'Warp Door'
+            if entity_id == bytes([0x38, 0x00, 0xFF]) or entity_id == bytes([0x38, 0x12, 0xFF]):
+                entity_name = 'Cheep Cheep'
+            if entity_id == bytes([0x39, 0x00, 0xFF]) or entity_id == bytes([0x39, 0x12, 0xFF]):
+                entity_name = 'Muncher'
+            if entity_id == bytes([0x3A, 0x00, 0xFF]) or entity_id == bytes([0x3A, 0x12, 0xFF]):
+                entity_name = 'Rocky Wrench'
+            if entity_id == bytes([0x3B, 0x00, 0xFF]) or entity_id == bytes([0x3B, 0x12, 0xFF]):
+                entity_name = 'Rail'
+            if entity_id == bytes([0x3C, 0x00, 0xFF]) or entity_id == bytes([0x3C, 0x12, 0xFF]):
+                entity_name = 'Lava Bubble'
+            if entity_id == bytes([0x3D, 0x00, 0xFF]) or entity_id == bytes([0x3D, 0x12, 0xFF]):
+                entity_name = 'Chain Chomp'
+            if entity_id == bytes([0x3E, 0x00, 0xFF]) or entity_id == bytes([0x3E, 0x12, 0xFF]):
+                entity_name = 'Bowser/Meowser'
+            if entity_id == bytes([0x3F, 0x00, 0xFF]) or entity_id == bytes([0x3F, 0x12, 0xFF]):
+                entity_name = 'Ice Block'
+            if entity_id == bytes([0x40, 0x00, 0xFF]) or entity_id == bytes([0x70, 0x12, 0xFF]):
+                entity_name = 'Vine'
+            if entity_id == bytes([0x41, 0x00, 0xFF]) or entity_id == bytes([0x41, 0x12, 0xFF]):
+                entity_name = 'Stingby'
+            if entity_id == bytes([0x42, 0x00, 0xFF]) or entity_id == bytes([0x42, 0x12, 0xFF]):
+                entity_name = 'Arrow Sign'
+            if entity_id == bytes([0x43, 0x00, 0xFF]) or entity_id == bytes([0x43, 0x12, 0xFF]):
+                entity_name = 'One-Way Wall'
+            if entity_id == bytes([0x44, 0x00, 0xFF]) or entity_id == bytes([0x44, 0x12, 0xFF]):
+                entity_name = 'Grinder'
+            if entity_id == bytes([0x45, 0x00, 0xFF]) or entity_id == bytes([0x45, 0x12, 0xFF]):
+                entity_name = 'Player'
+            if entity_id == bytes([0x46, 0x00, 0xFF]) or entity_id == bytes([0x46, 0x12, 0xFF]):
+                entity_name = '10-Coin'
+            if entity_id == bytes([0x47, 0x00, 0xFF]) or entity_id == bytes([0x47, 0x12, 0xFF]):
+                entity_name = 'Semisolid Platform (3D World)'
+            if entity_id == bytes([0x48, 0x00, 0xFF]) or entity_id == bytes([0x48, 0x12, 0xFF]):
+                entity_name = 'Koopa Troopa Car'
+            if entity_id == bytes([0x49, 0x00, 0xFF]) or entity_id == bytes([0x49, 0x12, 0xFF]):
+                entity_name = 'Toad'
+            if entity_id == bytes([0x4A, 0x00, 0xFF]) or entity_id == bytes([0x4A, 0x12, 0xFF]):
+                entity_name = 'None'
+            if entity_id == bytes([0x4B, 0x00, 0xFF]) or entity_id == bytes([0x4B, 0x12, 0xFF]):
+                entity_name = 'Stone'
+            if entity_id == bytes([0x4C, 0x00, 0xFF]) or entity_id == bytes([0x4C, 0x12, 0xFF]):
+                entity_name = 'Twister'
+            if entity_id == bytes([0x4D, 0x00, 0xFF]) or entity_id == bytes([0x4D, 0x12, 0xFF]):
+                entity_name = 'Boom Boom'
+            if entity_id == bytes([0x4E, 0x00, 0xFF]) or entity_id == bytes([0x4E, 0x12, 0xFF]):
+                entity_name = 'None'
+            if entity_id == bytes([0x4F, 0x00, 0xFF]) or entity_id == bytes([0x4F, 0x12, 0xFF]):
+                entity_name = 'None'
+            if entity_id == bytes([0x50, 0x00, 0xFF]) or entity_id == bytes([0x70, 0x12, 0xFF]):
+                entity_name = 'None'
+            if entity_id == bytes([0x51, 0x00, 0xFF]) or entity_id == bytes([0x51, 0x12, 0xFF]):
+                entity_name = 'Bumper'
+            if entity_id == bytes([0x52, 0x00, 0xFF]) or entity_id == bytes([0x52, 0x12, 0xFF]):
+                entity_name = 'Spike Pillar'
+            if entity_id == bytes([0x53, 0x00, 0xFF]) or entity_id == bytes([0x53, 0x12, 0xFF]):
+                entity_name = 'Snake Block'
+            if entity_id == bytes([0x54, 0x00, 0xFF]) or entity_id == bytes([0x54, 0x12, 0xFF]):
+                entity_name = 'Track Block'
+            if entity_id == bytes([0x55, 0x00, 0xFF]) or entity_id == bytes([0x55, 0x12, 0xFF]):
+                entity_name = 'Charvaargh'
+            if entity_id == bytes([0x56, 0x00, 0xFF]) or entity_id == bytes([0x56, 0x12, 0xFF]):
+                entity_name = 'Gentle Slope'
+            if entity_id == bytes([0x57, 0x00, 0xFF]) or entity_id == bytes([0x57, 0x12, 0xFF]):
+                entity_name = 'Steep Slope'
+            if entity_id == bytes([0x58, 0x00, 0xFF]) or entity_id == bytes([0x58, 0x12, 0xFF]):
+                entity_name = 'Custom Scroll Waypoint'
+            if entity_id == bytes([0x59, 0x00, 0xFF]) or entity_id == bytes([0x59, 0x12, 0xFF]):
+                entity_name = 'Checkpoint Flag'
+            if entity_id == bytes([0x5A, 0x00, 0xFF]) or entity_id == bytes([0x5A, 0x12, 0xFF]):
+                entity_name = 'Seesaw'
+            if entity_id == bytes([0x5B, 0x00, 0xFF]) or entity_id == bytes([0x5B, 0x12, 0xFF]):
+                entity_name = 'Pink Coin'
+            if entity_id == bytes([0x5C, 0x00, 0xFF]) or entity_id == bytes([0x5C, 0x12, 0xFF]):
+                entity_name = 'Clear Pipe'
+            if entity_id == bytes([0x5D, 0x00, 0xFF]) or entity_id == bytes([0x5D, 0x12, 0xFF]):
+                entity_name = 'Sloped Conveyer Belt'
+            if entity_id == bytes([0x5E, 0x00, 0xFF]) or entity_id == bytes([0x5E, 0x12, 0xFF]):
+                entity_name = 'Key'
+            if entity_id == bytes([0x5F, 0x00, 0xFF]) or entity_id == bytes([0x5F, 0x12, 0xFF]):
+                entity_name = 'Ant Trooper'
+            if entity_id == bytes([0x60, 0x00, 0xFF]) or entity_id == bytes([0x70, 0x12, 0xFF]):
+                entity_name = 'Warp Box'
+            if entity_id == bytes([0x61, 0x00, 0xFF]) or entity_id == bytes([0x61, 0x12, 0xFF]):
+                entity_name = 'Bowser Jr.'
+            if entity_id == bytes([0x62, 0x00, 0xFF]) or entity_id == bytes([0x62, 0x12, 0xFF]):
+                entity_name = 'On/Off Switch'
+            if entity_id == bytes([0x63, 0x00, 0xFF]) or entity_id == bytes([0x63, 0x12, 0xFF]):
+                entity_name = 'Dotted-Line Block'
+            if entity_id == bytes([0x64, 0x00, 0xFF]) or entity_id == bytes([0x64, 0x12, 0xFF]):
+                entity_name = 'Lava Editor'
+            if entity_id == bytes([0x65, 0x00, 0xFF]) or entity_id == bytes([0x65, 0x12, 0xFF]):
+                entity_name = 'Monty Mole'
+            if entity_id == bytes([0x66, 0x00, 0xFF]) or entity_id == bytes([0x66, 0x12, 0xFF]):
+                entity_name = 'Fish Bones'
+            if entity_id == bytes([0x67, 0x00, 0xFF]) or entity_id == bytes([0x67, 0x12, 0xFF]):
+                entity_name = 'Angry Sun'
+            if entity_id == bytes([0x68, 0x00, 0xFF]) or entity_id == bytes([0x68, 0x12, 0xFF]):
+                entity_name = 'Swinging Claw'
+            if entity_id == bytes([0x69, 0x00, 0xFF]) or entity_id == bytes([0x69, 0x12, 0xFF]):
+                entity_name = 'Tree'
+            if entity_id == bytes([0x6A, 0x00, 0xFF]) or entity_id == bytes([0x6A, 0x12, 0xFF]):
+                entity_name = 'Piranha Creeper'
+            if entity_id == bytes([0x6B, 0x00, 0xFF]) or entity_id == bytes([0x6B, 0x12, 0xFF]):
+                entity_name = 'Blinking Block'
+            if entity_id == bytes([0x6C, 0x00, 0xFF]) or entity_id == bytes([0x6C, 0x12, 0xFF]):
+                entity_name = 'Sound Effect Icon'
+            if entity_id == bytes([0x6D, 0x00, 0xFF]) or entity_id == bytes([0x6D, 0x12, 0xFF]):
+                entity_name = 'Spike Block'
+            if entity_id == bytes([0x6E, 0x00, 0xFF]) or entity_id == bytes([0x6E, 0x12, 0xFF]):
+                entity_name = 'None'
+            if entity_id == bytes([0x6F, 0x00, 0xFF]) or entity_id == bytes([0x6F, 0x12, 0xFF]):
+                entity_name = 'Crate'
+            if entity_id == bytes([0x70, 0x00, 0xFF]) or entity_id == bytes([0x70, 0x12, 0xFF]):
+                entity_name = 'Mushroom Trampoline'
+            if entity_id == bytes([0x71, 0x00, 0xFF]) or entity_id == bytes([0x71, 0x12, 0xFF]):
+                entity_name = 'Porcupuffer'
+            if entity_id == bytes([0x72, 0x00, 0xFF]) or entity_id == bytes([0x72, 0x12, 0xFF]):
+                entity_name = 'Goal Toadette'
+            if entity_id == bytes([0x73, 0x00, 0xFF]) or entity_id == bytes([0x73, 0x12, 0xFF]):
+                entity_name = 'Super Hammer'
+            if entity_id == bytes([0x74, 0x00, 0xFF]) or entity_id == bytes([0x74, 0x12, 0xFF]):
+                entity_name = 'Bully'
+            if entity_id == bytes([0x75, 0x00, 0xFF]) or entity_id == bytes([0x75, 0x12, 0xFF]):
+                entity_name = 'Icicle'
+            if entity_id == bytes([0x76, 0x00, 0xFF]) or entity_id == bytes([0x76, 0x12, 0xFF]):
+                entity_name = '! Block'
+            if entity_name == f'Unknown({entity_id})':
+                with open(dec_course_path,'rb') as course:
+                    data = course.read()
+                    data = bytearray(data)
+                    data[608 + 32 * i - 24:608 + 32 * i + 32 - 24] = b'\xB0\x04\x00\x00\xF0\x00\x00\x00\x00\x00\x01\x01\x40\x00\x00\x06\x40\x00\x00\x06\x00\x00\x00\x00\x00\x00\xFF\xFF\xFF\xFF\xFF\xFF'
+                    with open(dec_course_path,'wb') as course:
+                        course.write(data)
+                        print('Success!')
+                        return
