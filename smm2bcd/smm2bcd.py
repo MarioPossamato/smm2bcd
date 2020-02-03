@@ -811,7 +811,7 @@ def edit_entity(entity_name, entity_number):
         new_id = 0x48
     if entity_name == 'Toad':
         new_id = 0x49
-    if entity_name == 'Spike' entity_name == 'Spike Ball':
+    if entity_name == 'Spike' or entity_name == 'Spike Ball':
         new_id = 0x4A
     if entity_name == 'Stone':
         new_id = 0x4B
