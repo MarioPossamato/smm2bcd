@@ -1195,3 +1195,119 @@ def add_new_basic_entity():
                         course.write(data)
                         print('Success!')
                         return
+
+def read_time_limit():
+    global dec_course_path
+    with open(dec_course_path, 'rb') as course:
+        course.seek(4)
+        time_limit = course.read(2)
+        time_limit = int.from_bytes(time_limit, 'little')
+        print(time_limit)
+
+def read_save_date():
+    global dec_course_path
+    with open(dec_course_path, 'rb') as course:
+        course.seek(8)
+        save_year = course.read(2)
+        save_year = int.from_bytes(save_year, 'little')
+    with open(dec_course_path, 'rb') as course:
+        course.seek(10)
+        save_month = course.read(1)
+        save_month = int.from_bytes(save_month, 'little')
+    with open(dec_course_path, 'rb') as course:
+        course.seek(11)
+        save_day = course.read(1)
+        save_day = int.from_bytes(save_day, 'little')
+    with open(dec_course_path, 'rb') as course:
+        course.seek(12)
+        save_hour = course.read(1)
+        save_hour = int.from_bytes(save_hour, 'little')
+    with open(dec_course_path, 'rb') as course:
+        course.seek(13)
+        save_minute = course.read(1)
+        save_minute = int.from_bytes(save_minute, 'little')
+    if len(str(save_minute)) == 1:
+        save_minute = '0'+str(save_minute)
+    print(str(save_month) + '/' + str(save_day) + '/' + str(save_year) + ' ' + str(save_hour) + ':' + str(save_minute))
+
+def read_clear_condition_amount():
+    global dec_course_path
+    with open(dec_course_path, 'rb') as course:
+        course.seek(6)
+        clear_condition_amount = course.read(2)
+        clear_condition_amount = int.from_bytes()
+        print(clear_condition_amount)
+
+def read_course_name():
+    global dec_course_path
+    with open(dec_course_path, 'rb') as course:
+        full_name = []
+        for i in range(32):
+            course.seek(244 + (i * 2))
+            name_segment = course.read(1)
+            name_segment = name_segment.decode("utf-8")
+            full_name.append(name_segment)
+        full_name = ''.join(full_name)
+        print(full_name)
+
+def read_course_description():
+    global dec_course_path
+    with open(dec_course_path, 'rb') as course:
+        full_description = []
+        for i in range(75):
+            course.seek(310 + (i * 2))
+            description_segment = course.read(1)
+            description_segment = description_segment.decode("utf-8")
+            full_description.append(description_segment)
+        full_description = ''.join(full_description)
+        print(full_description)
+
+def read_course_style():
+    global dec_course_path
+    with open(dec_course_path, 'rb') as course:
+        course.seek(241)
+        style = course.read(2)
+        print(style.decode('utf-8'))
+
+def read_course_theme():
+    global dec_course_path
+    with open(dec_course_path, 'rb') as course:
+        course.seek(0x200)
+        theme = course.read(1)
+        if theme == bytes([0x00]):
+            theme = 'Ground'
+        if theme == bytes([0x01]):
+            theme = 'Underground'
+        if theme == bytes([0x02]):
+            theme = 'Castle'
+        if theme == bytes([0x03]):
+            theme = 'Airship'
+        if theme == bytes([0x04]):
+            theme = 'Underwater'
+        if theme == bytes([0x05]):
+            theme = 'Ghost House'
+        if theme == bytes([0x06]):
+            theme = 'Snow'
+        if theme == bytes([0x07]):
+            theme = 'Desert'
+        if theme == bytes([0x08]):
+            theme = 'Sky'
+        if theme == bytes([0x09]):
+            theme = 'Forest'
+        print(theme + ' Theme')
+
+def read_object_count():
+    global dec_course_path
+    with open(dec_course_path, 'rb') as course:
+        course.seek(540)
+        obj_count = course.read(4)
+        obj_count = int.from_bytes(obj_count, 'little')
+        print(obj_count)
+
+def read_sound_effect_count():
+    global dec_course_path
+    with open(dec_course_path, 'rb') as course:
+        course.seek(544)
+        sfx_count = course.read(4)
+        sfx_count = int.from_bytes(sfx_count, 'little')
+        print(sfx_count)
