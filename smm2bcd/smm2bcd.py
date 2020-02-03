@@ -1,5 +1,6 @@
 import sys, os, os.path, tkinter
 from tkinter import filedialog, messagebox
+from ctypes import *
 
 
 def encrypt_course():
@@ -1315,3 +1316,15 @@ def read_sound_effect_count():
         sfx_count = course.read(4)
         sfx_count = int.from_bytes(sfx_count, 'little')
         print(sfx_count)
+
+def float_to_hex(f):
+    return hex(struct.unpack('<I', struct.pack('<f', f))[0])
+
+def double_to_hex(f):
+    return hex(struct.unpack('<Q', struct.pack('<d', f))[0])
+
+def convert(s):
+    i = int(s, 16)
+    cp = pointer(c_int(i))
+    fp = cast(cp, POINTER(c_float))
+    return fp.contents.value
