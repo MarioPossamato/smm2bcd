@@ -1,4 +1,4 @@
-import sys, os, os.path, tkinter
+import sys, struct, os, os.path, tkinter
 from tkinter import filedialog, messagebox
 from ctypes import *
 
