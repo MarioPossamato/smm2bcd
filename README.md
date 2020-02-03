@@ -1,5 +1,5 @@
 # Smm2Bcd
-A simple command line tool that reads entity data from a Super Mario Maker 2 course file.
+A simple command line tool that reads data from a Super Mario Maker 2 course file.
 
 ## Pre-Requisites
 [Smm2Bcd](https://github.com/MarioPossamato/smm2bcd/archive/master.zip)  
