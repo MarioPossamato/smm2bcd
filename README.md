@@ -12,7 +12,7 @@ On `Windows`, just double-click the `batch script` included in the package;
 On `Linux`, open the console and type `wine cmd.exe /c` followed by the path of the batch script.
 
 ## How do I use the `import_course_path` functions?
-Make sure you set the `dec_course_path.txt` and `enc_course_path.txt` files in `path_files` to the directories of courses you want to import, then you can run
+Make sure you set the `dec_course_path.txt` and `enc_course_path.txt` files in the `path` folder to the appropriate directories of courses you want to import, then you can run
 ```
 import_enc_course_path()
 ```
