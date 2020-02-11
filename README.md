@@ -9,7 +9,7 @@ A simple little command-line tool that reads data from a Super Mario Maker 2 cou
 ## Usage - Running Smm2Bcd
 Before you start, make sure the `dec_path.txt` file contains the path of the course decryptor binary above!  
 On `Windows`, you can just double-click `smm2bcd.bat`, which is included in the package;  
-On `Linux`, open the console and type `python3 -i path_to_smm2bcd.py`.
+On `Linux`, open the console and run `python3 -i path_to_smm2bcd.py`.
 
 ## How do I use the `import_course_path` functions?
 Make sure you set the `dec_course_path.txt` and `enc_course_path.txt` files in the `path` folder to the appropriate directories of courses you want to import, then you can run
@@ -28,7 +28,7 @@ import_dec_course_path()
 [My Discord Server](https://discord.gg/8wx8uQF)
 
 ## Who gets credit for this?
-Mario Possamato for the initial script;  
-Comex for cleaning up the script;  
-Simontime for the initial course decryptor;  
-Blawar for the encryption support for the decryptor.
+- Mario Possamato for the initial script  
+- Comex for cleaning up the script  
+- Simontime for the initial course decryptor  
+- Blawar for the encryption support for the decryptor
