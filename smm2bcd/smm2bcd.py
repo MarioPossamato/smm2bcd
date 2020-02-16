@@ -22,9 +22,6 @@ def encrypt_course():
 
 def open_enc_course():
     global dec_course_path
-    home = os.path.expanduser("~")
-    root = tkinter.Tk()
-    root.withdraw()
     course_path = QtWidgets.QFileDialog.getOpenFileName(self, "Select An Encrypted Super Mario Maker 2 Course Data File", '', 'Binary Course Data File (*.bcd)')[0]
     if course_path:
         head, tail = os.path.split(course_path)
@@ -51,7 +48,6 @@ def import_enc_course_path():
 
 def open_dec_course():
     global dec_course_path
-    home = os.path.expanduser("~")
     dec_course_path = QtWidgets.QFileDialog.getOpenFileName(self, "Select A Decrypted Super Mario Maker 2 Course Data File", '', 'Binary Course Data File (*.bcd)')[0]
     if dec_course_path:
         print(dec_course_path)
