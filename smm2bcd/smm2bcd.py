@@ -1,5 +1,4 @@
-import sys, struct, os, os.path, tkinter
-from tkinter import filedialog, messagebox
+import sys, struct, os, os.path
 from ctypes import *
 
 def float_to_hex(f):
@@ -26,7 +25,7 @@ def open_enc_course():
     home = os.path.expanduser("~")
     root = tkinter.Tk()
     root.withdraw()
-    course_path = filedialog.askopenfilename(initialdir = home + "/Desktop",title = "Select An Encrypted Super Mario Maker 2 Course Data File",filetypes = (("Binary Course Data Files","*.bcd"),("All Files","*.*")))
+    course_path = QtWidgets.QFileDialog.getOpenFileName(self, "Select An Encrypted Super Mario Maker 2 Course Data File", '', 'Binary Course Data File (*.bcd)')[0]
     if course_path:
         head, tail = os.path.split(course_path)
         dec_course_path = head + '\dec_' + tail
@@ -53,9 +52,7 @@ def import_enc_course_path():
 def open_dec_course():
     global dec_course_path
     home = os.path.expanduser("~")
-    root = tkinter.Tk()
-    root.withdraw()
-    dec_course_path = filedialog.askopenfilename(initialdir = home + "/Desktop",title = "Select A Decrypted Super Mario Maker 2 Course Data File",filetypes = (("Binary Course Data Files","*.bcd"),("All Files","*.*")))
+    dec_course_path = QtWidgets.QFileDialog.getOpenFileName(self, "Select A Decrypted Super Mario Maker 2 Course Data File", '', 'Binary Course Data File (*.bcd)')[0]
     if dec_course_path:
         print(dec_course_path)
     else:
