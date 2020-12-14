@@ -4,7 +4,6 @@ A simple little command-line tool that reads data from a Super Mario Maker 2 cou
 ## Pre-Requisites
 [smm2bcd](https://github.com/MarioPossamato/smm2bcd/archive/master.zip)  
 [Python 3.7](https://www.python.org/downloads/release/python-370/)  
-[Super Mario Maker 2 Course Decryptor](https://cdn.discordapp.com/attachments/638445176070602752/665586143001051156/smm2dec.exe)
 
 ## Running smm2bcd
 On `Windows`, you can just double-click `smm2bcd.bat`, which is included in the package;  
