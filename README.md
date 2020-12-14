@@ -4,7 +4,7 @@ A simple little command-line tool that reads data from a Super Mario Maker 2 cou
 ## Pre-Requisites
 [smm2bcd](https://github.com/MarioPossamato/smm2bcd/archive/master.zip)  
 [Python 3.7](https://www.python.org/downloads/release/python-370/)  
-PyCryptodome: `pip install pycryptodome`
+PyCryptodome: `pip install pycryptodome`  
 NintendoClients: `pip install https://github.com/Kinnay/NintendoClients/archive/master.zip`
 
 ## Running smm2bcd
