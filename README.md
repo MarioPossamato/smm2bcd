@@ -8,8 +8,7 @@ PyCryptodome: `pip install pycryptodome`
 NintendoClients: `pip install https://github.com/Kinnay/NintendoClients/archive/master.zip`
 
 ## Running smm2bcd
-On `Windows`, you can just double-click `smm2bcd.bat`, which is included in the package;  
-On `Linux`, open the console and run `python3 -i path_to_smm2bcd.py`.
+`smm2bcd.py -i [course_data_000.bcd]`
 
 ## Where do I get help/support?
 [My Discord Server](https://discord.gg/8wx8uQF)
